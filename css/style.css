@@ -74,6 +74,7 @@ header {
 
 .profile {
   padding: 0 2rem;
+  min-height: max(800px, fit-content);
   min-height: 500px;
   background-color: var(--temp-color);
   background-image: url("../images/jane_doe_profile.webp");
@@ -117,6 +118,11 @@ header {
   font-size: var(--h1-size);
   color: var(--h1-color);
   align-self: flex-end;
+}
+
+main {
+  padding: 34px 0;
+  min-height: content;
 }
 
 .project-container {
@@ -207,12 +213,35 @@ footer {
 
 @media (max-width: 500px) {
   .page {
-    margin: 34px 34px;
-    background-color: rgb(237, 237, 237);
+    margin: 21px 34px;
   }
 
   header {
     grid-template: auto auto / 1fr;
+  }
+
+  .about-me {
+    align-self: center;
+    height: 80%;
+    filter: none;
+    background: none;
+    padding: 0 13px;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .profile-summary {
+    gap: 0;
+  }
+
+  .profile-summary h2 {
+    /* font-size: var(--h2-size); */
+    align-self: center;
+  }
+
+  .about-me .social-bar {
+    /* font-size: var(--h3-size); */
+    align-self: center;
   }
 
   .project-container {
@@ -237,6 +266,7 @@ footer {
   .footer-content img {
     grid-column: 1;
     width: 100vw;
+    filter: none;
   }
 
   .credit {
