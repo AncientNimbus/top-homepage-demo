@@ -3,12 +3,28 @@
   --drop-shadow: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
   --temp-color: rgb(156, 156, 156);
   --h1-size: 4rem;
+  --h2-size: 3rem;
+  --h3-size: 2rem;
   --h1-color: rgb(255, 255, 255);
 }
 
 body {
   display: flex;
   justify-content: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.social-bar {
+  margin: 0;
+  padding: 0;
+}
+.social-bar li {
+  list-style: none;
+  display: inline;
 }
 
 .bg-wrap {
@@ -27,8 +43,13 @@ body {
 }
 
 .page {
-  margin: 21px 21px;
+  margin: 34px 55px;
   max-width: var(--max-width);
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 .profile {
@@ -42,6 +63,26 @@ body {
   justify-content: center;
 }
 
+.about-me {
+  align-self: center;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: beige;
+  padding: 34px;
+}
+
+.about-me h2 {
+  font-size: var(--h2-size);
+}
+
+.about-me .social-bar {
+  font-size: var(--h3-size);
+  align-self: flex-end;
+  border: 1px solid royalblue;
+}
+
 .profile h1 {
   font-size: var(--h1-size);
   color: var(--h1-color);
@@ -50,6 +91,7 @@ body {
 
 @media (max-width: 500px) {
   .page {
+    margin: 34px 34px;
     background-color: blue;
   }
 }
