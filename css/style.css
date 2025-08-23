@@ -8,11 +8,14 @@
   --h2-size: 3rem;
   --h3-size: 2rem;
   --h1-color: rgb(255, 255, 255);
+  --std-gap: 1rem;
 }
 
 body {
   display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 a {
@@ -20,7 +23,8 @@ a {
   text-decoration: none;
 }
 
-.page {
+.page,
+footer .footer-content {
   margin: 34px 55px;
   max-width: var(--max-width);
 }
@@ -29,6 +33,7 @@ a {
   margin: 0;
   padding: 0;
 }
+
 .social-bar li {
   list-style: none;
   display: inline;
@@ -37,12 +42,17 @@ a {
 
 .profile,
 .bg-wrap,
-.about-me {
+.about-me,
+footer img {
   filter: var(--drop-shadow);
 }
 
+footer,
 .bg-wrap {
   width: 100vw;
+}
+
+.bg-wrap {
   position: absolute;
   top: 0;
   transform: translate(0%, -20%);
@@ -78,13 +88,23 @@ header {
   height: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: beige;
   padding: 34px;
 }
 
-.about-me h2 {
+.profile-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--std-gap);
+}
+
+.profile-summary h2 {
   font-size: var(--h2-size);
+}
+
+.profile-summary p {
+  font-size: calc(var(--h2-size) * 0.4);
 }
 
 .about-me .social-bar {
@@ -100,11 +120,82 @@ header {
 
 footer {
   background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  display: grid;
+  grid-template: 3fr 1fr / 1fr 1fr;
+  justify-items: center;
+  gap: 2rem;
+}
+
+.footer-content address {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.footer-content h2 {
+  font-size: var(--h2-size);
+}
+
+.footer-content :not(h2) {
+  font-size: 1rem;
+}
+
+.footer-content .social-bar i {
+  font-size: var(--h3-size);
+}
+
+.footer-content address ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-content img {
+  max-width: 100%;
+  max-height: 250px;
+  align-self: center;
+  object-fit: cover;
+}
+
+.credit {
+  grid-column: 1 / span 2;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  width: 100%;
 }
 
 @media (max-width: 500px) {
   .page {
     margin: 34px 34px;
     background-color: blue;
+  }
+
+  header {
+    grid-template: auto auto / 1fr;
+  }
+
+  .footer-content {
+    grid-template: repeat(3, auto) / 1fr;
+  }
+
+  .footer-content .social-bar {
+    align-self: center;
+  }
+
+  .footer-content img {
+    padding: 0;
+  }
+
+  .credit {
+    grid-column: 1;
+    grid-row: 2;
   }
 }
