@@ -1,0 +1,55 @@
+:root {
+  --max-width: 1600px;
+  --drop-shadow: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  --temp-color: rgb(156, 156, 156);
+  --h1-size: 4rem;
+  --h1-color: rgb(255, 255, 255);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.bg-wrap {
+  filter: var(--drop-shadow);
+  z-index: -10;
+}
+
+.bg-decor {
+  width: 100vw;
+  min-height: 600px;
+  top: 0;
+  position: absolute;
+  transform: translate(0%, -20%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
+  background-color: aquamarine;
+}
+
+.page {
+  margin: 21px 21px;
+  max-width: var(--max-width);
+}
+
+.profile {
+  max-width: 450px;
+  min-height: 450px;
+  background-color: var(--temp-color);
+  filter: var(--drop-shadow);
+  background-image: url("../images/jane_doe_profile.webp");
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.profile h1 {
+  font-size: var(--h1-size);
+  color: var(--h1-color);
+  align-self: flex-end;
+}
+
+@media (max-width: 500px) {
+  .page {
+    background-color: blue;
+  }
+}
