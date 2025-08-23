@@ -43,6 +43,7 @@ a {
 .profile,
 .bg-wrap,
 .about-me,
+.card-container,
 footer img {
   filter: var(--drop-shadow);
 }
@@ -118,6 +119,37 @@ header {
   align-self: flex-end;
 }
 
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 3rem;
+}
+
+.card-container {
+  display: grid;
+  max-width: 300px;
+  padding: 13px;
+  background-color: rgb(255, 255, 255);
+}
+
+.card-container img {
+  border-radius: 8px;
+  min-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.project-details {
+  display: grid;
+  grid-template: min-content auto / auto auto;
+  align-items: center;
+}
+
+.project-details .project-actions {
+  grid-column: 2;
+}
+
 footer {
   background-color: var(--primary-color);
   display: flex;
@@ -176,11 +208,17 @@ footer {
 @media (max-width: 500px) {
   .page {
     margin: 34px 34px;
-    background-color: blue;
+    background-color: rgb(237, 237, 237);
   }
 
   header {
     grid-template: auto auto / 1fr;
+  }
+
+  .project-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 3rem;
   }
 
   .footer-content {
