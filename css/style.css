@@ -203,8 +203,9 @@ main {
 }
 
 .card-container img {
+  border: 1px solid rgb(227, 227, 227);
   min-width: 100%;
-  max-height: 300px;
+  height: 300px;
   object-fit: cover;
 }
 
