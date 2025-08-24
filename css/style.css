@@ -6,7 +6,7 @@
   --secondary-color: rgb(255, 255, 255);
   --h1-size: 4rem;
   --h2-size: 3rem;
-  --h3-size: 2rem;
+  --h3-size: 1.5rem;
   --h1-color: rgb(255, 255, 255);
   --std-gap: 1rem;
 }
@@ -73,8 +73,8 @@ header {
 }
 
 .profile {
-  padding: 0 2rem;
-  min-height: max(800px, fit-content);
+  padding: 0 1rem;
+  max-width: 500px;
   min-height: 500px;
   background-color: var(--temp-color);
   background-image: url("../images/jane_doe_profile.webp");
@@ -101,7 +101,7 @@ header {
   gap: var(--std-gap);
 }
 
-.profile-summary h2 {
+h2 {
   font-size: var(--h2-size);
 }
 
@@ -122,19 +122,28 @@ header {
 
 main {
   padding: 34px 0;
-  min-height: content;
+  /* min-height: max(800px, min-content); */
+}
+
+.my-work-container {
+  min-height: min(100vh, 600px);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
 }
 
 .project-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
   gap: 3rem;
 }
 
 .card-container {
   display: grid;
-  max-width: 300px;
+  border-radius: 8px;
+  max-width: 400px;
+  min-height: 450px;
   padding: 13px;
   background-color: rgb(255, 255, 255);
 }
@@ -142,8 +151,13 @@ main {
 .card-container img {
   border-radius: 8px;
   min-width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   object-fit: cover;
+}
+
+.project-title,
+.project-actions {
+  font-size: var(--h3-size);
 }
 
 .project-details {
@@ -177,10 +191,6 @@ footer {
   gap: 1rem;
 }
 
-.footer-content h2 {
-  font-size: var(--h2-size);
-}
-
 .footer-content :not(h2) {
   font-size: 1rem;
 }
@@ -211,9 +221,23 @@ footer {
   width: 100%;
 }
 
+@media (max-width: 1100px) and (min-width: 501px) {
+  header {
+    /* display: block; */
+  }
+
+  .about-me {
+    display: block;
+  }
+
+  .profile {
+    float: left;
+  }
+}
+
 @media (max-width: 500px) {
   .page {
-    margin: 21px 34px;
+    margin: 21px 21px;
   }
 
   header {
@@ -235,12 +259,18 @@ footer {
   }
 
   .profile-summary h2 {
-    /* font-size: var(--h2-size); */
     align-self: center;
   }
 
+  main h2 {
+    align-self: center;
+  }
+
+  .social-bar a {
+    font-size: calc(var(--h3-size) * 1.5);
+  }
+
   .about-me .social-bar {
-    /* font-size: var(--h3-size); */
     align-self: center;
   }
 
@@ -253,10 +283,15 @@ footer {
   .footer-content {
     grid-template: repeat(3, auto) / 1fr;
     margin: 0;
+    padding-top: 21px;
   }
 
   .footer-content address {
-    margin: 0 55px;
+    margin: 0 34px;
+  }
+
+  .footer-content address h2 {
+    align-self: center;
   }
 
   .footer-content .social-bar {
